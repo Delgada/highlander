@@ -1,4 +1,0 @@
-highlander
-==========
-
-Highlander Project
