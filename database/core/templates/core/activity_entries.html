@@ -1,0 +1,17 @@
+{% extends 'highlander/base.html' %}
+{% block title %}{{ activity_name }}{% endblock %}
+
+{% block content %}
+<h1><a href="{% url 'core:activity' activity_url_name %}">{{ activity_name }}</a></h1>
+     
+     {% if entries %}
+            <ul>
+             {% for entry in entries %}
+                <li>{{entry.user}},{{entry.score}}</li>
+             {% endfor %}
+            </ul>
+     {% else %}
+            <strong>No entries currently in this activity.</strong>
+     {% endif %}
+
+{% endblock %}}

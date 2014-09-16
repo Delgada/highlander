@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 
 from core.models import Activity
+from core.models import ActivityEntry
+
 # Create your views here.
 def decode_url(category_name_url):
     return category_name_url.replace('_', ' ')
@@ -23,6 +25,22 @@ class IndexView( generic.ListView ):
         for activity in self.activities:
             activity.url = encode_url(activity.name)
         return self.activities
+
+class ActivityEntriesView( generic.ListView ):
+    template_name = 'core/activity_entries.html'
+    model = ActivityEntry
+
+    def get_context_data(self, **kwargs):
+        context = super(ActivityEntriesView, self).get_context_data(**kwargs)
+        activity_url_name = self.kwargs['activity_url_name']
+        activity_name = decode_url( activity_url_name )
+        context['activity_name'] = activity_name
+        activity = get_object_or_404( Activity, name = activity_name )
+        entries = ActivityEntry.objects.filter( activity = activity )
+        context['entries'] = entries
+        context['activity_url_name'] = activity_url_name
+        return context
+    #    self.activities = ActivityEntry.objects.filter( 
 
 
 

@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', views.IndexView.as_view(), name = 'index' ),
+    url(r'(?P<activity_url_name>\w+)/entries/$',views.ActivityEntriesView.as_view(), name='activity_entries'),
     url(r'(?P<activity_url_name>\w+)/$',views.ActivityView.as_view(), name='activity'),
 )
