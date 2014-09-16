@@ -1,0 +1,10 @@
+{% extends 'highlander/base.html' %}
+{% block title %}{{ activity.name }}{% endblock %}
+
+{% block content %}
+<h1>{{activity.name}}</h1>
+
+{{activity.user_owner}}<br/>
+{{activity.creation_date}}
+
+{% endblock %}}

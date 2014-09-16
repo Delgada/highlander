@@ -1,0 +1,10 @@
+execute
+manage.py makemigrations
+manage.py syncdb
+
+populate_script.py
+
+manage.py runserver 8000
+
+go to localhost:8000/activities
+

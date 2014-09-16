@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07f9841a-8e72-4875-b892-11e8778cdda3}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <UseIISExpress>true</UseIISExpress>
+    <InterpreterId>{12141037-d222-46ca-a44b-6abe4d60f66e}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <CommandLineArguments />
+    <InterpreterPath />
+    <InterpreterArguments />
+    <DjangoSettingsModule>$(MSBuildProjectName).settings</DjangoSettingsModule>
+    <WebBrowserUrl />
+    <WebBrowserPort>8000</WebBrowserPort>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Compile Include="core\urls.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="core\admin.py" />
+    <Compile Include="core\models.py" />
+    <Compile Include="core\tests.py" />
+    <Compile Include="core\views.py" />
+    <Compile Include="core\__init__.py" />
+    <Compile Include="highlander\settings.py" />
+    <Compile Include="highlander\urls.py" />
+    <Compile Include="highlander\wsgi.py" />
+    <Compile Include="highlander\__init__.py" />
+    <Compile Include="core\migrations\__init__.py" />
+    <Compile Include="populate_script.py" />
+    <Compile Include="registration\admin.py" />
+    <Compile Include="registration\auth_urls.py" />
+    <Compile Include="registration\backends\default\urls.py" />
+    <Compile Include="registration\backends\default\views.py" />
+    <Compile Include="registration\backends\default\__init__.py" />
+    <Compile Include="registration\backends\simple\urls.py" />
+    <Compile Include="registration\backends\simple\views.py" />
+    <Compile Include="registration\backends\simple\__init__.py" />
+    <Compile Include="registration\backends\__init__.py" />
+    <Compile Include="registration\forms.py" />
+    <Compile Include="registration\management\commands\cleanupregistration.py" />
+    <Compile Include="registration\management\commands\__init__.py" />
+    <Compile Include="registration\management\__init__.py" />
+    <Compile Include="registration\models.py" />
+    <Compile Include="registration\signals.py" />
+    <Compile Include="registration\tests\default_backend.py" />
+    <Compile Include="registration\tests\forms.py" />
+    <Compile Include="registration\tests\models.py" />
+    <Compile Include="registration\tests\simple_backend.py" />
+    <Compile Include="registration\tests\urls.py" />
+    <Compile Include="registration\tests\__init__.py" />
+    <Compile Include="registration\urls.py" />
+    <Compile Include="registration\users.py" />
+    <Compile Include="registration\views.py" />
+    <Compile Include="registration\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="core\" />
+    <Folder Include="core\migrations\" />
+    <Folder Include="core\static\" />
+    <Folder Include="core\static\core\" />
+    <Folder Include="core\templates\" />
+    <Folder Include="core\templates\core\" />
+    <Folder Include="highlander" />
+    <Folder Include="static\" />
+    <Folder Include="registration\" />
+    <Folder Include="registration\backends\" />
+    <Folder Include="registration\backends\default\" />
+    <Folder Include="registration\backends\simple\" />
+    <Folder Include="registration\locale\" />
+    <Folder Include="registration\locale\ar\" />
+    <Folder Include="registration\locale\ar\LC_MESSAGES\" />
+    <Folder Include="registration\locale\bg\" />
+    <Folder Include="registration\locale\bg\LC_MESSAGES\" />
+    <Folder Include="registration\locale\ca\" />
+    <Folder Include="registration\locale\ca\LC_MESSAGES\" />
+    <Folder Include="registration\locale\cs\" />
+    <Folder Include="registration\locale\cs\LC_MESSAGES\" />
+    <Folder Include="registration\locale\da\" />
+    <Folder Include="registration\locale\da\LC_MESSAGES\" />
+    <Folder Include="registration\locale\de\" />
+    <Folder Include="registration\locale\de\LC_MESSAGES\" />
+    <Folder Include="registration\locale\el\" />
+    <Folder Include="registration\locale\el\LC_MESSAGES\" />
+    <Folder Include="registration\locale\en\" />
+    <Folder Include="registration\locale\en\LC_MESSAGES\" />
+    <Folder Include="registration\locale\es\" />
+    <Folder Include="registration\locale\es\LC_MESSAGES\" />
+    <Folder Include="registration\locale\es_AR\" />
+    <Folder Include="registration\locale\es_AR\LC_MESSAGES\" />
+    <Folder Include="registration\locale\fa\" />
+    <Folder Include="registration\locale\fa\LC_MESSAGES\" />
+    <Folder Include="registration\locale\fr\" />
+    <Folder Include="registration\locale\fr\LC_MESSAGES\" />
+    <Folder Include="registration\locale\he\" />
+    <Folder Include="registration\locale\he\LC_MESSAGES\" />
+    <Folder Include="registration\locale\hr\" />
+    <Folder Include="registration\locale\hr\LC_MESSAGES\" />
+    <Folder Include="registration\locale\is\" />
+    <Folder Include="registration\locale\is\LC_MESSAGES\" />
+    <Folder Include="registration\locale\it\" />
+    <Folder Include="registration\locale\it\LC_MESSAGES\" />
+    <Folder Include="registration\locale\ja\" />
+    <Folder Include="registration\locale\ja\LC_MESSAGES\" />
+    <Folder Include="registration\locale\ko\" />
+    <Folder Include="registration\locale\ko\LC_MESSAGES\" />
+    <Folder Include="registration\locale\nb\" />
+    <Folder Include="registration\locale\nb\LC_MESSAGES\" />
+    <Folder Include="registration\locale\nl\" />
+    <Folder Include="registration\locale\nl\LC_MESSAGES\" />
+    <Folder Include="registration\locale\pl\" />
+    <Folder Include="registration\locale\pl\LC_MESSAGES\" />
+    <Folder Include="registration\locale\pt\" />
+    <Folder Include="registration\locale\pt\LC_MESSAGES\" />
+    <Folder Include="registration\locale\pt_BR\" />
+    <Folder Include="registration\locale\pt_BR\LC_MESSAGES\" />
+    <Folder Include="registration\locale\ru\" />
+    <Folder Include="registration\locale\ru\LC_MESSAGES\" />
+    <Folder Include="registration\locale\sl\" />
+    <Folder Include="registration\locale\sl\LC_MESSAGES\" />
+    <Folder Include="registration\locale\sr\" />
+    <Folder Include="registration\locale\sr\LC_MESSAGES\" />
+    <Folder Include="registration\locale\sv\" />
+    <Folder Include="registration\locale\sv\LC_MESSAGES\" />
+    <Folder Include="registration\locale\tr_TR\" />
+    <Folder Include="registration\locale\tr_TR\LC_MESSAGES\" />
+    <Folder Include="registration\locale\zh_CN\" />
+    <Folder Include="registration\locale\zh_CN\LC_MESSAGES\" />
+    <Folder Include="registration\locale\zh_TW\" />
+    <Folder Include="registration\locale\zh_TW\LC_MESSAGES\" />
+    <Folder Include="registration\management\" />
+    <Folder Include="registration\management\commands\" />
+    <Folder Include="registration\templates\" />
+    <Folder Include="registration\templates\registration\" />
+    <Folder Include="registration\tests\" />
+    <Folder Include="static\css\" />
+    <Folder Include="templates\" />
+    <Folder Include="templates\highlander\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebPiReference Include="https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml%3fDjango">
+      <Feed>https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml</Feed>
+      <ProductId>Django</ProductId>
+      <FriendlyName>Django 1.4</FriendlyName>
+    </WebPiReference>
+    <WebPiReference Include="https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml%3fPytho27">
+      <Feed>https://www.microsoft.com/web/webpi/3.0/toolsproductlist.xml</Feed>
+      <ProductId>Python27</ProductId>
+      <FriendlyName>Python 2.7</FriendlyName>
+    </WebPiReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="core\static\core\style.css" />
+    <Content Include="core\templates\core\activity.html" />
+    <Content Include="core\templates\core\index.html" />
+    <Content Include="registration\locale\ar\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\ar\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\bg\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\bg\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\ca\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\ca\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\cs\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\cs\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\da\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\da\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\de\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\de\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\el\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\el\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\en\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\en\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\es\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\es\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\es_AR\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\es_AR\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\fa\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\fa\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\fr\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\fr\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\he\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\he\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\hr\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\hr\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\is\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\is\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\it\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\it\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\ja\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\ja\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\ko\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\ko\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\nb\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\nb\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\nl\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\nl\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\pl\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\pl\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\pt\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\pt\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\pt_BR\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\pt_BR\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\ru\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\ru\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\sl\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\sl\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\sr\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\sr\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\sv\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\sv\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\tr_TR\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\tr_TR\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\zh_CN\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\zh_CN\LC_MESSAGES\django.po" />
+    <Content Include="registration\locale\zh_TW\LC_MESSAGES\django.mo" />
+    <Content Include="registration\locale\zh_TW\LC_MESSAGES\django.po" />
+    <Content Include="registration\templates\registration\activate.html" />
+    <Content Include="registration\templates\registration\activation_complete.html" />
+    <Content Include="registration\templates\registration\activation_email.html" />
+    <Content Include="registration\templates\registration\activation_email.txt" />
+    <Content Include="registration\templates\registration\activation_email_subject.txt" />
+    <Content Include="registration\templates\registration\login.html" />
+    <Content Include="registration\templates\registration\logout.html" />
+    <Content Include="registration\templates\registration\password_change_done.html" />
+    <Content Include="registration\templates\registration\password_change_form.html" />
+    <Content Include="registration\templates\registration\password_reset_complete.html" />
+    <Content Include="registration\templates\registration\password_reset_confirm.html" />
+    <Content Include="registration\templates\registration\password_reset_done.html" />
+    <Content Include="registration\templates\registration\password_reset_email.html" />
+    <Content Include="registration\templates\registration\password_reset_form.html" />
+    <Content Include="registration\templates\registration\registration_base.html" />
+    <Content Include="registration\templates\registration\registration_closed.html" />
+    <Content Include="registration\templates\registration\registration_complete.html" />
+    <Content Include="registration\templates\registration\registration_form.html" />
+    <Content Include="static\css\style.css" />
+    <Content Include="templates\highlander\base.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>{12141037-d222-46ca-a44b-6abe4d60f66e}</Id>
+      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
+      <Version>2.7</Version>
+      <Description>env (Python 64-bit 2.7)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54633/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>True</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

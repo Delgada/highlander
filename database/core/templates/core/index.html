@@ -1,0 +1,19 @@
+
+{% extends 'highlander/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'core/style.css' %}" />
+{% if latest_activities %}
+    <ul>
+    {% for activity in latest_activities %}
+        <li><a href="{% url 'core:activity' activity.url %}">{{ activity.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No activities are currently available.</p>
+{% endif %}
+
+{% endblock %}
