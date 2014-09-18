@@ -145,6 +145,8 @@
     <Folder Include="registration\templates\registration\" />
     <Folder Include="registration\tests\" />
     <Folder Include="static\css\" />
+    <Folder Include="static\fonts\" />
+    <Folder Include="static\js\" />
     <Folder Include="templates\" />
     <Folder Include="templates\highlander\" />
   </ItemGroup>
@@ -163,6 +165,7 @@
   <ItemGroup>
     <Content Include="core\static\core\style.css" />
     <Content Include="core\templates\core\activity.html" />
+    <Content Include="core\templates\core\activity_entries.html" />
     <Content Include="core\templates\core\index.html" />
     <Content Include="registration\locale\ar\LC_MESSAGES\django.mo" />
     <Content Include="registration\locale\ar\LC_MESSAGES\django.po" />
@@ -242,7 +245,21 @@
     <Content Include="registration\templates\registration\registration_closed.html" />
     <Content Include="registration\templates\registration\registration_complete.html" />
     <Content Include="registration\templates\registration\registration_form.html" />
+    <Content Include="static\css\bootstrap-fluid-adj.css" />
+    <Content Include="static\css\bootstrap-theme.css" />
+    <Content Include="static\css\bootstrap-theme.css.map" />
+    <Content Include="static\css\bootstrap-theme.min.css" />
+    <Content Include="static\css\bootstrap.css" />
+    <Content Include="static\css\bootstrap.css.map" />
+    <Content Include="static\css\bootstrap.min.css" />
     <Content Include="static\css\style.css" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\js\bootstrap.js" />
+    <Content Include="static\js\bootstrap.min.js" />
+    <Content Include="static\js\jquery-2.1.1.min.js" />
     <Content Include="templates\highlander\base.html" />
   </ItemGroup>
   <ItemGroup>

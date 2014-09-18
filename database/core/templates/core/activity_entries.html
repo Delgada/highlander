@@ -5,11 +5,19 @@
 <h1><a href="{% url 'core:activity' activity_url_name %}">{{ activity_name }}</a></h1>
      
      {% if entries %}
-            <ul>
+        <table class="table table-bordered">
+            <tr>
+                <td>User Name</td>
+                <td>Score</td>
+            </tr>
              {% for entry in entries %}
-                <li>{{entry.user}},{{entry.score}}</li>
+                <tr>
+                    <td>{{entry.user}}</td>
+                    <td>{{entry.score}}</td>
+                </tr>                 
+            <!-- <li>{{entry.user}},{{entry.score}}</li>-->
              {% endfor %}
-            </ul>
+        </table>
      {% else %}
             <strong>No entries currently in this activity.</strong>
      {% endif %}
