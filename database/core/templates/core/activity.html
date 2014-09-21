@@ -3,8 +3,13 @@
 
 {% block content %}
 <h1>{{activity.name}}</h1>
-
-{{activity.user_owner}}<br/>
-{{activity.creation_date}}
+<table class="table table-bordered">
+<tr>
+<td>Create by</td><td>{{activity.user_owner}}</td>
+</tr>
+<tr>
+<td>Created on</td><td>{{activity.creation_date}}</td>
+</tr>
+</table>
 
 {% endblock %}}

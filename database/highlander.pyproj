@@ -14,7 +14,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <UseIISExpress>true</UseIISExpress>
-    <InterpreterId>{12141037-d222-46ca-a44b-6abe4d60f66e}</InterpreterId>
+    <InterpreterId>{2d9dd90d-cb72-4339-80b4-b3432df057a4}</InterpreterId>
     <InterpreterVersion>2.7</InterpreterVersion>
     <CommandLineArguments />
     <InterpreterPath />
@@ -166,6 +166,8 @@
     <Content Include="core\static\core\style.css" />
     <Content Include="core\templates\core\activity.html" />
     <Content Include="core\templates\core\activity_entries.html" />
+    <Content Include="core\templates\core\activity_entry_form.html" />
+    <Content Include="core\templates\core\activity_form.html" />
     <Content Include="core\templates\core\index.html" />
     <Content Include="registration\locale\ar\LC_MESSAGES\django.mo" />
     <Content Include="registration\locale\ar\LC_MESSAGES\django.po" />
@@ -264,7 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
-      <Id>{12141037-d222-46ca-a44b-6abe4d60f66e}</Id>
+      <Id>{2d9dd90d-cb72-4339-80b4-b3432df057a4}</Id>
       <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
       <Version>2.7</Version>
       <Description>env (Python 64-bit 2.7)</Description>

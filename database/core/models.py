@@ -7,7 +7,7 @@ class Activity( models.Model ):
     name = models.CharField(max_length = 255, unique = True )
     creation_date = models.DateTimeField('date created')
     user_owner = models.ForeignKey(User)
-    
+    description = models.CharField(max_length = 2000 )
 
     class Meta:
         verbose_name_plural = "Activities"

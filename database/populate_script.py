@@ -3,7 +3,8 @@ import os
 from datetime import datetime
 
 def populate():
-    
+    from django.utils import timezone
+
     def add_user( user, email, password ):
         u = User.objects.get_or_create( username = user, email = email, password = password )
         u[0].save()
@@ -20,15 +21,15 @@ def populate():
                                                      activity = activity )
                    
     bart = add_user( 'bart', 'bart@simpsons.com', 'bart' )  
-    a1 = add_activity('Catapulting', datetime.today().date(), bart )[0]
+    a1 = add_activity('Catapulting', timezone.now(), bart )[0]
 
     lisa = add_user( 'lisa', 'lisa@simpsons.com', 'lisa' )
-    a2 = add_activity( 'Speed Mathematics', datetime.today().date(), lisa )[0]
+    a2 = add_activity( 'Speed Mathematics', timezone.now(), lisa )[0]
 
     homer = add_user( 'homer', 'homer@simpsons.com', 'homer' )
-    a3 = add_activity( 'Yard of Ale', datetime.today().date(), homer )[0]
+    a3 = add_activity( 'Yard of Ale', timezone.now(), homer )[0]
 
-    today = datetime.today().date()
+    today = timezone.now()
     activity_entries = [ ( bart, today, 10.0, a1 ),
                           ( bart, today, 10.0, a2 ),
                           ( bart, today, 10.0, a3 ),

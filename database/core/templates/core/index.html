@@ -9,11 +9,11 @@
 {% if latest_activities %}
     <ul>
     {% for activity in latest_activities %}
-        <li><a href="{% url 'core:activity_entries' activity.url %}">{{ activity.name }}</a></li>
+        <li><a href="{% url 'core:activity_entries' activity.pk %}">{{ activity.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No activities are currently available.</p>
 {% endif %}
-
+<a href="{% url 'core:activity_create' %}">Create Activity</a>
 {% endblock %}

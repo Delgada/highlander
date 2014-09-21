@@ -7,6 +7,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', views.IndexView.as_view(), name = 'index' ),
-    url(r'(?P<activity_url_name>\w+)/entries/$',views.ActivityEntriesView.as_view(), name='activity_entries'),
-    url(r'(?P<activity_url_name>\w+)/$',views.ActivityView.as_view(), name='activity'),
+    url(r'^(?P<pk>\d+)/entries',views.ActivityEntriesView.as_view(), name='activity_entries'),
+    url(r'^(?P<pk>\d+)',views.ActivityView.as_view(), name='activity'),
+    url(r'^create',views.ActivityCreate.as_view(), name='activity_create' ),
+    url(r'^activity_entry_create/(?P<pk>\d+)', views.ActivityEntryCreate.as_view(), name = 'activity_entry_create' ),
 )
