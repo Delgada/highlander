@@ -5,7 +5,7 @@
 {% block content %}
 <form class="form-horizontal" role="form" method ="POST" action=".">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value="Save">
 </form>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from registration.signals import user_registered
 
 # Create your models here.
 class Activity( models.Model ):
@@ -25,5 +26,17 @@ class ActivityEntry( models.Model ):
     def __unicode__(self):
         return 'Activity Entry %s' % self.activity.name
 
-
-    
+#user profile
+class UserProfile(models.Model):
+    user = models.OneToOneField( User )
+    url = models.URLField()
+ 
+    def __unicode__(self):
+        return self.user
+ 
+def user_registered_callback(sender, user, request, **kwargs):
+    profile = UserProfile(user = user)
+    profile.url = request.POST["url"]
+    profile.save()
+ 
+user_registered.connect(user_registered_callback)

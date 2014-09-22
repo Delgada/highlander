@@ -14,6 +14,13 @@
                 <tr>
                     <td>{{entry.user}}</td>
                     <td>{{entry.score}}</td>
+                    <td> <a href="{% url 'core:activity_entry_update' entry.pk %}">Update Entry</a> </td>
+                    <td>
+                         <form method="POST" action="{% url 'core:activity_entry_delete' entry.pk %}">
+                                {% csrf_token %}
+                                <input type="submit" class="btn btn-sm btn-danger" value="Delete"></input>
+                         </form>
+                    </td> 
                 </tr>                 
             <!-- <li>{{entry.user}},{{entry.score}}</li>-->
              {% endfor %}
@@ -22,4 +29,5 @@
             <strong>No entries currently in this activity.</strong>
      {% endif %}
      <a href="{% url 'core:activity_entry_create' activity_pk %}">Create Entry</a>
+    
 {% endblock %}}

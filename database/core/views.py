@@ -3,7 +3,7 @@ from django.views import generic
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -71,10 +71,26 @@ class ActivityEntryCreate( CreateView ):
         
         form.instance.entry_date = timezone.now()
         form.instance.user = self.request.user
+        return super(ActivityEntryCreate, self ).form_valid(form)
 
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):        
         return super(ActivityEntryCreate, self).dispatch(request, *args, **kwargs)
 
+class ActivityEntryUpdate( UpdateView ):
+    template_name = "core/activity_entry_form.html"
+    model = ActivityEntry
+    success_url = reverse_lazy('core:index')
+    fields = ['activity','score']
 
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):        
+        return super(ActivityEntryUpdate, self).dispatch(request, *args, **kwargs)
 
+class ActivityEntryDelete( DeleteView ):
+    model = ActivityEntry
+    success_url = reverse_lazy('core:index')
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):        
+        return super(ActivityEntryDelete, self).dispatch(request, *args, **kwargs)
