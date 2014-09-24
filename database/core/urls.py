@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^activity_entry_create/(?P<pk>\d+)/$', views.ActivityEntryCreate.as_view(), name = 'activity_entry_create' ),
     url(r'^activity_entry_update/(?P<pk>\d+)/$', views.ActivityEntryUpdate.as_view(), name = 'activity_entry_update' ),
     url(r'^activity_entry_delete/(?P<pk>\d+)/$', views.ActivityEntryDelete.as_view(), name = 'activity_entry_delete' ),
+    url(r'^activity_update/(?P<pk>\d+)/$', views.ActivityUpdate.as_view(), name = 'activity_update' ),
+    url(r'^activity_delete/(?P<pk>\d+)/$', views.ActivityDelete.as_view(), name = 'activity_delete' ),
 )

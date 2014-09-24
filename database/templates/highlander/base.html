@@ -61,6 +61,10 @@
                     <ul class="dropdown-menu" role="menu">
                         {% if user.is_authenticated %}
                             <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                            <li><a href="{% url 'profile' slug=user.username %}">{{ user.username }}</a> 
+                            {% if object.username == user.username %}
+                                <li><a href='{% url "edit_profile" %}'>Edit my profile</a></li>
+                            {% endif  %}
                         {% else %}
                             <li><a href="{% url 'auth_login' %}">Login</a></li>
                             <li><a href="{% url 'registration_register' %}">Register</a></li>
@@ -80,7 +84,6 @@
       </div>
 
     </div><!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

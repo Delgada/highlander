@@ -264,6 +264,8 @@
     <Content Include="static\js\bootstrap.min.js" />
     <Content Include="static\js\jquery-2.1.1.min.js" />
     <Content Include="templates\highlander\base.html" />
+    <Content Include="templates\highlander\edit_profile.html" />
+    <Content Include="templates\highlander\user_detail.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">

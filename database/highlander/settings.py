@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.core.urlresolvers import reverse_lazy
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -98,3 +100,4 @@ STATICFILES_DIRS = (
                os.path.join(BASE_DIR,'static'),
                )
 
+LOGIN_REDIRECT_URL=reverse_lazy('home' )

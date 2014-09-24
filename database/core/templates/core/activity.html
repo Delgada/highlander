@@ -11,5 +11,9 @@
 <td>Created on</td><td>{{activity.creation_date}}</td>
 </tr>
 </table>
-
+<a href="{% url 'core:activity_update' activity.pk %}">Update</a></br>
+<form method="POST" action="{% url 'core:activity_delete' activity.pk %}">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-sm btn-danger" value="Delete"></input>
+</form>
 {% endblock %}}

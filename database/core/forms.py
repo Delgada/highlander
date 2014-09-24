@@ -1,7 +1,14 @@
 from registration.forms import RegistrationForm
 from django import forms
  
-class UserProfileForm(RegistrationForm):
-    #intent to use django gis for location
-    #location = 
-    url = forms.URLField( required = False )
+#class UserProfileForm(RegistrationForm):
+#    #intent to use django gis for location
+#    #location = 
+#    url = forms.URLField( required = False )
+from django import forms
+from .models import UserProfile
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ["user"]
