@@ -1,5 +1,5 @@
 {% extends 'highlander/base.html' %}
-{% block title %}{{ activity_name }}{% endblock %}
+{% load i18n %}
 
 {% block content %}
 <h1><a href="{% url 'core:activity' activity_pk %}">{{ activity_name }}</a></h1>
@@ -9,6 +9,8 @@
             <tr>
                 <td>User Name</td>
                 <td>Score</td>
+                <td></td>
+                <td></td>
             </tr>
              {% for entry in entries %}
                 <tr>

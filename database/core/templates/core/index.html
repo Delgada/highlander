@@ -1,11 +1,10 @@
 
 {% extends 'highlander/base.html' %}
+{% load i18n %}
 {% load staticfiles %}
 
 
 {% block content %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 {% if latest_activities %}
     <ul>
     {% for activity in latest_activities %}

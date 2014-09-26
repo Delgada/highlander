@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model
+from django.forms.models import modelform_factory
 from django.http import HttpResponseRedirect
 
 from core.models import Activity
@@ -18,7 +19,7 @@ def home(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect( reverse('core:index' ) )
     else:
-        return HttpResponseRedirect( reverse('auth_login' )) 
+        return HttpResponseRedirect( reverse('auth_login' ) ) 
 
 class IndexView( generic.ListView ):
     template_name = 'core/index.html'
@@ -59,8 +60,8 @@ class ActivityView( generic.DetailView ):
 class ActivityCreate( CreateView ):
     template_name = "core/activity_form.html"
     model = Activity
-    success_url = reverse_lazy('core:index')
-    fields = ['name','description']
+    success_url = reverse_lazy('home')
+    #fields = ['name','description']
 
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):        
@@ -134,7 +135,7 @@ class UserProfileDetailView( generic.DetailView):
 
 class UserProfileEditView(UpdateView):
     model = UserProfile
-    form_class = UserProfileForm
+    #form_class = UserProfileForm
     template_name = "edit_profile.html"
 
     def get_object(self, queryset=None):
@@ -142,3 +143,6 @@ class UserProfileEditView(UpdateView):
 
     def get_success_url(self):
         return reverse("profile", kwargs={'slug': self.request.user})
+
+
+

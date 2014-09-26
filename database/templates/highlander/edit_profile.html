@@ -3,9 +3,20 @@
 {% block content %}
 <h2>{{ user.username }}'s Profile</h2>
 
-<form method="post" action="">
+<form method="post" action="" role="form">
   {% csrf_token %}
-  {{ form.as_p }}
+  {% for field in form.visible_fields %}
+      <div class="form-group{% if field.errors %} has-error{% endif %}">
+        <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}
+          <span class="help-block">{{ field.help_text }}</span>
+        {% endif %}
+        {% for error in field.errors %}
+          <label class="control-label">{{ error }}</label>
+        {% endfor %}
+      </div>
+    {% endfor %}
   <input type="submit" value="Edit">
 </form>
 

@@ -1,8 +1,15 @@
+
 {% extends 'highlander/base.html' %}
-{% block title %}{{ activity.name }}{% endblock %}
+{% load i18n %}
+{% load staticfiles %}
+{% block head %}
+<div>
+<h1 class="page-header">{{activity_name}}</h1>
+</div>
+{% endblock head %}
 
 {% block content %}
-<h1>{{activity.name}}</h1>
+
 <table class="table table-bordered">
 <tr>
 <td>Create by</td><td>{{activity.user_owner}}</td>
@@ -16,4 +23,4 @@
     {% csrf_token %}
     <input type="submit" class="btn btn-sm btn-danger" value="Delete"></input>
 </form>
-{% endblock %}}
+{% endblock %}

@@ -29,7 +29,11 @@ class ActivityEntry( models.Model ):
 #user profile
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True)
-    bio = models.TextField(null=True)
+    bio = models.TextField()
+    url = models.URLField()
+    location = models.CharField( max_length = 2 )
+    first_name = models.CharField( max_length = 10 )
+    last_name = models.CharField( max_length = 10 )
 
     def __unicode__(self):
         return "%s's profile" % self.user
@@ -38,19 +42,16 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         profile, created = UserProfile.objects.get_or_create(user=instance)
 
-from django.db.models.signals import post_save
-post_save.connect(create_profile, sender=User)
+#from django.db.models.signals import post_save
+#post_save.connect(create_profile, sender=User)
 
-#class UserProfile(models.Model):
-#    user = models.OneToOneField( User )
-#    url = models.URLField()
+def user_registered_callback(sender, user, request, **kwargs):
+    profile = UserProfile(user = user)
+    profile.url = request.POST["url"]
+    profile.bio = request.POST["bio"]
+    profile.location = request.POST["location"]
+    profile.first_name = request.POST["first_name"]
+    profile.last_name = request.POST["last_name"]
+    profile.save()
  
-#    def __unicode__(self):
-#        return self.user
- 
-#def user_registered_callback(sender, user, request, **kwargs):
-#    profile = UserProfile(user = user)
-#    profile.url = request.POST["url"]
-#    profile.save()
- 
-#user_registered.connect(user_registered_callback)
+user_registered.connect(user_registered_callback)
