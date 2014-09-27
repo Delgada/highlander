@@ -2,12 +2,16 @@
 
 {% block content %}
 <h2>{{ object.username }}'s Profile</h2>
-{% if object.userprofile.bio %}
 <div>
-<b>Bio:</b>
-{{ object.userprofile.bio }}
+    <dl class="dl-horizontal">
+    <dt>Biography</dt>
+    <dd>{{object.userprofile.bio}}</dd>
+    <dt>First Name</dt>
+    <dd>{{object.userprofile.first_name}}</dd>
+    <dt>Last NAme</dt>
+    <dd>{{object.userprofile.last_name}}</dd>
+</dl>
 </div>
-{% endif %}
 {% if object.username == user.username %}
 <p><a href='{% url "edit_profile" %}'>Edit my profile</a></p>
 {% endif %}

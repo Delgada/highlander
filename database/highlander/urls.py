@@ -3,6 +3,7 @@ from django.contrib import admin
 from registration.backends.simple.views import RegistrationView
 from core.views import UserProfileDetailView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
 from core.views import UserProfileEditView
 from core.models import UserProfile
 from core.forms import UserProfileForm
@@ -15,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^users/(?P<slug>\w+)/$', UserProfileDetailView.as_view(), name="profile"),
     url(r'^edit_profile/$', login_required(UserProfileEditView.as_view()), name="edit_profile"),
     url(r'^accounts/register/$', RegistrationView.as_view(form_class = UserProfileForm ) , name = 'registration_register'),
+    url(r'^accounts/logout/$', auth_views.logout, {'template_name': 'registration/logout.html', 'next_page':'home'}, name='auth_logout'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
 )
         

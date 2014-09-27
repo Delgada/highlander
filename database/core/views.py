@@ -35,10 +35,6 @@ class ActivityEntriesView( generic.ListView ):
     template_name = 'core/activity_entries.html'
     model = ActivityEntry
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityEntriesView, self).dispatch(request, *args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(ActivityEntriesView, self).get_context_data(**kwargs)
         activity_pk = self.kwargs['pk']
@@ -53,20 +49,11 @@ class ActivityView( generic.DetailView ):
     template_name = 'core/activity.html'
     model = Activity
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityView, self).dispatch(request, *args, **kwargs)
-
 class ActivityCreate( CreateView ):
     template_name = "core/activity_form.html"
     model = Activity
     success_url = reverse_lazy('home')
-    #fields = ['name','description']
-
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityCreate, self).dispatch(request, *args, **kwargs)
-
+    
     def form_valid(self, form):
         form.instance.user_owner = self.request.user
         form.instance.creation_date = timezone.now()
@@ -77,18 +64,10 @@ class ActivityUpdate( UpdateView ):
     model = Activity
     success_url = reverse_lazy('core:index')
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityUpdate, self).dispatch(request, *args, **kwargs)
-
 class ActivityDelete( DeleteView ):
     model = Activity
     success_url = reverse_lazy('core:index')
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityDelete, self).dispatch(request, *args, **kwargs)
- 
 class ActivityEntryCreate( CreateView ):
     template_name = "core/activity_entry_form.html"
     model = ActivityEntry
@@ -101,27 +80,15 @@ class ActivityEntryCreate( CreateView ):
         form.instance.user = self.request.user
         return super(ActivityEntryCreate, self ).form_valid(form)
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityEntryCreate, self).dispatch(request, *args, **kwargs)
-
 class ActivityEntryUpdate( UpdateView ):
     template_name = "core/activity_entry_form.html"
     model = ActivityEntry
     success_url = reverse_lazy('core:index')
     fields = ['activity','score']
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityEntryUpdate, self).dispatch(request, *args, **kwargs)
-
 class ActivityEntryDelete( DeleteView ):
     model = ActivityEntry
     success_url = reverse_lazy('core:index')
-
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
-        return super(ActivityEntryDelete, self).dispatch(request, *args, **kwargs)
 
 class UserProfileDetailView( generic.DetailView):
     model = get_user_model()
@@ -133,16 +100,23 @@ class UserProfileDetailView( generic.DetailView):
         UserProfile.objects.get_or_create(user=user)
         return user
 
+from core.forms import UserProfileEditForm
+
 class UserProfileEditView(UpdateView):
-    model = UserProfile
-    #form_class = UserProfileForm
+    form_class = UserProfileEditForm
     template_name = "edit_profile.html"
+
+    def get_initial( self ):
+        initial = super(UserProfileEditView, self).get_initial()
+        initial["bio"] = self.get_object().bio
+        initial["first_name"] = self.get_object().first_name
+        initial["last_name"] = self.get_object().last_name
+        initial["url"] = self.get_object().url
+        initial["location"] = self.get_object().location
+        return initial
 
     def get_object(self, queryset=None):
         return UserProfile.objects.get_or_create(user=self.request.user)[0]
 
     def get_success_url(self):
         return reverse("profile", kwargs={'slug': self.request.user})
-
-
-

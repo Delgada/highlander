@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Activity, UserProfile
+from core.models import Activity, UserProfile, ActivityEntry
 from django.contrib.auth.models import User
 # Register your models here.
 
@@ -8,14 +8,18 @@ from django.contrib.auth.models import User
 #    model = User
 #    extra = 3
 
+class ActivityEntriesInline( admin.TabularInline ):
+    model = ActivityEntry
+
 class ActivityAdmin( admin.ModelAdmin ):
     fieldsets = [
-                 (None, {'fields':['name','url','user_owner']}),
+                 (None, {'fields':['name','user_owner']}),
                  ('Date Information', {'fields':['creation_date']}),
                  ]
     list_display = ('name', 'user_owner', 'creation_date' )
     list_filter = ['creation_date']
     search_fields = ['name']
+    inlines = [ ActivityEntriesInline ]
     #inlines = [UserInline]
 
 admin.site.register( Activity, ActivityAdmin )

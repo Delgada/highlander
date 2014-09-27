@@ -255,6 +255,7 @@
     <Content Include="static\css\bootstrap.css" />
     <Content Include="static\css\bootstrap.css.map" />
     <Content Include="static\css\bootstrap.min.css" />
+    <Content Include="static\css\signin.css" />
     <Content Include="static\css\style.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
