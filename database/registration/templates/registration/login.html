@@ -15,7 +15,19 @@
         <h2 class="form-signin-heading">Login</h2>
         {{ form.non_field_errors }}
         <input class="form-control" type="text" placeholder="username" name="username" id="username" value="" autofocus />
+        {% if username.help_text %}
+             <span class="help-block">{{ username.help_text }}</span>
+        {% endif %}
+        {% for error in username.errors %}
+                <label class="control-label">{{ error }}</label>
+        {% endfor %}
         <input class="form-control" type="password" placeholder="password" name="password" id="password" value="" autofocus />
+                {% if password.help_text %}
+             <span class="help-block">{{ username.help_text }}</span>
+        {% endif %}
+        {% for error in password.errors %}
+                <label class="control-label">{{ error }}</label>
+        {% endfor %}
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>   
         <input type="hidden" name="next" value="{{ next }}" />  
         <p>{% trans "Forgot your password?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>.</p>

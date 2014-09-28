@@ -6,8 +6,9 @@ def populate():
     from django.utils import timezone
 
     def add_user( user, email, password ):
-        u = User.objects.get_or_create( username = user, email = email, password = password )
-        u[0].save()
+        u = User.objects.get_or_create( username = user,
+                                       defaults={'email':email, 'password': password } )
+        up = UserProfile.objects.get_or_create( user = u[0] )
         return u[0]
 
     def add_activity( name, creation_date, user_owner ):
@@ -25,18 +26,21 @@ def populate():
     activity = add_activity( '100m', timezone.now(), creator )[0]
 
     def read_csv( filename ):
-        import csv
+        import csv, re
+        numeric_const_pattern = "(?: (?: \d* \. \d+ ) | (?: \d+ \.? ) )"
+        rx = re.compile( numeric_const_pattern, re.VERBOSE )
         with open( filename, 'rb' ) as f:
             fcsv = csv.reader( f ) 
             fcsv.next() ## header
             for line in fcsv:
                 first_name = line[2].split(' ')[0]
                 last_name = line[2].split(' ')[-1]
-                username = first_name + '.' + last_name
-                runner = add_user( username, username + '@gmail.com', username )
+                username = first_name + last_name
+                runner = add_user( username, username + '@gmail.com', 'password' )
                 entry_date =  timezone.make_aware( datetime( int( line[0] ),1,1 ), timezone.get_current_timezone())
-                #time = float( re.search( '\d+.\d+', line[-1] ).group(0) )
-                time = float( line[-1].split(' ')[0] )
+                x = rx.findall( line[-1] )
+                time = float(x[0] )
+                #time = float( line[-1].split(' ')[0] )
                 add_activity_entry( runner, entry_date, time, activity )
     print "Reading file %s" % filename
     read_csv( filename )
@@ -58,6 +62,6 @@ if __name__ == '__main__':
     django.setup()
 
     from core.models import Activity, ActivityEntry
-    from core.models import User
+    from core.models import User, UserProfile
     
     populate()

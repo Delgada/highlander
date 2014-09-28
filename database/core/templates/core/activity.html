@@ -12,7 +12,7 @@
 
 <table class="table table-bordered">
 <tr>
-<td>Create by</td><td>{{activity.user_owner}}</td>
+<td>Created by</td><td><a href="{% url 'profile' activity.user_owner %}">{{activity.user_owner}}</a></td>
 </tr>
 <tr>
 <td>Created on</td><td>{{activity.creation_date}}</td>

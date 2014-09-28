@@ -64,9 +64,23 @@ class ActivityUpdate( UpdateView ):
     model = Activity
     success_url = reverse_lazy('core:index')
 
+    def get_object(self, *args, **kwargs):
+        obj = super(ActivityUpdate, self).get_object(*args, **kwargs)
+        if obj.user_owner != self.request.user:
+            raise PermissionDenied() #or Http404
+        return obj
+
+
 class ActivityDelete( DeleteView ):
     model = Activity
     success_url = reverse_lazy('core:index')
+
+    def get_object(self, *args, **kwargs):
+        obj = super(ActivityUpdate, self).get_object(*args, **kwargs)
+        if obj.user_owner != self.request.user:
+            raise PermissionDenied() #or Http404
+        return obj
+
 
 class ActivityEntryCreate( CreateView ):
     template_name = "core/activity_entry_form.html"
@@ -86,9 +100,23 @@ class ActivityEntryUpdate( UpdateView ):
     success_url = reverse_lazy('core:index')
     fields = ['activity','score']
 
+    def get_object(self, *args, **kwargs):
+        obj = super(ActivityEntryUpdate, self).get_object(*args, **kwargs)
+        if obj.user != self.request.user:
+            raise PermissionDenied() #or Http404
+        return obj
+
+
 class ActivityEntryDelete( DeleteView ):
     model = ActivityEntry
     success_url = reverse_lazy('core:index')
+
+    def get_object(self, *args, **kwargs):
+        obj = super(ActivityEntryDelete, self).get_object(*args, **kwargs)
+        if obj.user != self.request.user:
+            raise PermissionDenied() #or Http404
+        return obj
+
 
 class UserProfileDetailView( generic.DetailView):
     model = get_user_model()

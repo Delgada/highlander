@@ -9,13 +9,15 @@
             <tr>
                 <td>User Name</td>
                 <td>Score</td>
+                <td>Date</td>
                 <td></td>
                 <td></td>
             </tr>
              {% for entry in entries %}
                 <tr>
-                    <td>{{entry.user}}</td>
+                    <td><a href="{% url 'profile' entry.user %}">{{entry.user}}</a></td>
                     <td>{{entry.score}}</td>
+                    <td>{{entry.entry_date}}</td>
                     <td> <a href="{% url 'core:activity_entry_update' entry.pk %}">Update Entry</a> </td>
                     <td>
                          <form method="POST" action="{% url 'core:activity_entry_delete' entry.pk %}">

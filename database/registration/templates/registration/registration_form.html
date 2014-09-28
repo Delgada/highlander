@@ -16,10 +16,15 @@
         {% csrf_token %}
         <h2 class="form-signin-heading">Please sign in</h2>
         {{ form.non_field_errors }}
-        
         {% for field in form %}
-            <input class="form-control" placeholder="{{field.label}}" name="{{field.name}}" value="" autofocus />
-        {% endfor %} 
+            <input class="form-control {% if field.errors %} has-error {% endif %}" placeholder="{{field.label}}" name="{{field.name}}" value="" autofocus />
+            {% if field.help_text %}
+             <span class="help-block">{{ field.help_text }}</span>
+            {% endif %}
+            {% for error in field.errors %}
+                <label class="control-label">{{ error }}</label>
+            {% endfor %}
+         {% endfor %} 
          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>       
       </form>
 
